@@ -89,6 +89,16 @@
         <!-- Git Talk -->
         <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-        <script></script>
+        <script>
+            const gitalk = new Gitalk({
+                clientID: "9dd9311566530f40b3f1",
+                clientSecret: "6ef3586c67c69781d82a1e4fd740623af72488f8",
+                repo: "rogerrordo.github.io",
+                owner: "RogerRordo",
+                admin: ["RogerRordo"],
+                // facebook-like distraction free mode
+                distractionFreeMode: false,
+            });
+        </script>
     </body>
 </html>
