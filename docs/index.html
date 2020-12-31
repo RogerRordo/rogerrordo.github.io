@@ -9,6 +9,7 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
         />
+
         <!-- Site Theme -->
         <link
             rel="stylesheet"
@@ -16,17 +17,64 @@
         />
         <style>
             :root {
-                --theme-color: #7719aa;
-                --sidebar-width: 22rem;
+                --theme-color: #aa00ff;
                 --code-block-line-height: 1.5;
+                --sidebar-toggle-background: var(--sidebar-background);
+                --sidebar-toggle-icon-color: var(--theme-color);
+                --notice-important-background: #ffd0f040;
+                --notice-important-border-color: #ff00bfc0;
+                --notice-tip-background: #d2f7fac0;
+                --notice-tip-border-color: #29bcf7c0;
+                --link-color--hover: var(--theme-color);
+            }
+        </style>
+
+        <!-- Improve search input-->
+        <style type="text/css">
+            .sidebar .search .clear-button {
+                margin: 0 7.5px 0 7.5px;
+            }
+        </style>
+
+        <!-- Improve Copycode -->
+        <style>
+            :root {
                 --copycode-background: var(--theme-color);
                 --copycode-color: #ffffff;
+            }
+        </style>
+
+        <!-- Improve Sidebar-nav-pagelink -->
+        <style>
+            :root {
                 --sidebar-nav-pagelink-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='11.2' viewBox='0 0 7 11.2'%3E%3Cpath d='M1.5 1.5l4 4.1 -4 4.1' stroke-width='1.5' stroke='rgb%28119, 25, 170%29' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
                 --sidebar-nav-pagelink-background-image--active: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11.2' height='7' viewBox='0 0 11.2 7'%3E%3Cpath d='M1.5 1.5l4.1 4 4.1-4' stroke-width='1.5' stroke='rgb%28119, 25, 170%29' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
                 --sidebar-nav-pagelink-background-image--collapse: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='11.2' viewBox='0 0 7 11.2'%3E%3Cpath d='M1.5 1.5l4 4.1 -4 4.1' stroke-width='1.5' stroke='rgb%28119, 25, 170%29' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
                 --sidebar-nav-pagelink-background-image--loaded: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11.2' height='7' viewBox='0 0 11.2 7'%3E%3Cpath d='M1.5 1.5l4.1 4 4.1-4' stroke-width='1.5' stroke='rgb%28119, 25, 170%29' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
             }
         </style>
+
+        <!-- Improve portable device -->
+        <style type="text/css">
+            @media (max-width: 47.99em) {
+                .sidebar-toggle {
+                    top: auto;
+                    bottom: 0;
+                    transform: translateX(0);
+                }
+                .sidebar-toggle .sidebar-toggle-button {
+                    top: auto;
+                    bottom: 0;
+                    transition: transform var(--sidebar-transition-duration)
+                        ease-out;
+                }
+                body.close .sidebar-toggle .sidebar-toggle-button {
+                    transform: translate(calc(0px - var(--sidebar-width)));
+                }
+            }
+        </style>
+
+        <!-- Improve markdown -->
         <style type="text/css">
             .markdown-section figure,
             .markdown-section p,
@@ -38,7 +86,12 @@
             .markdown-section .warn {
                 margin: 0.5em 0;
             }
+
+            .markdown-section a.anchor:hover {
+                text-decoration-color: var(--theme-color);
+            }
         </style>
+
         <!-- Fix sidebar fold arrow -->
         <style type="text/css">
             .sidebar-nav
@@ -86,55 +139,52 @@
         />
         <style type="text/css">
             .gt-container .gt-btn {
-                border: 1px solid #7719aa;
-                background-color: #7719aa;
+                border: 1px solid var(--theme-color);
+                background-color: var(--theme-color);
             }
-
             .gt-container .gt-btn-preview {
-                color: #7719aa;
+                color: var(--theme-color);
                 background-color: #fff;
             }
-
             .gt-container .gt-header-controls-tip {
-                color: #7719aa;
+                color: var(--theme-color);
             }
-
             .gt-container .gt-svg svg {
-                fill: #7719aa;
+                fill: var(--theme-color);
             }
-
             .gt-container a:hover {
                 color: #9558b2;
                 border-color: #9558b2;
             }
-
             .gt-container .gt-link {
-                border-bottom: 1px dotted #7719aa;
+                border-bottom: 1px dotted var(--theme-color);
             }
-
             .gt-container a {
-                color: #7719aa;
+                color: var(--theme-color);
             }
-
             .gt-container .gt-popup .gt-action.is--active::before {
-                background: #7719aa;
+                background: var(--theme-color);
             }
-
             .gt-container .gt-btn-preview:hover {
                 border-color: #9558b2;
             }
-
             .gt-container .gt-user .is--poping .gt-ico svg {
-                fill: #7719aa;
+                fill: var(--theme-color);
             }
-
             .gt-container .gt-btn-public:hover {
                 background-color: #9558b2;
                 border-color: #9558b2;
             }
-
             .gt-container .gt-comment-username {
-                color: #7719aa;
+                color: var(--theme-color);
+            }
+        </style>
+
+        <!-- Improve Pagination -->
+        <style>
+            :root {
+                --pagination-label-color: var(--theme-color);
+                --pagination-title-color: var(--theme-color);
             }
         </style>
     </head>
@@ -152,6 +202,7 @@
                 loadNavbar: true,
                 alias: {
                     "/.*/_sidebar.md": "/_sidebar.md",
+                    "/.*/_navbar.md": "/_navbar.md",
                 },
                 auto2top: true,
                 relativePath: false,
