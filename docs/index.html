@@ -207,6 +207,7 @@
                 },
                 auto2top: true,
                 relativePath: false,
+                formatUpdated: "{MM}/{DD}/{YYYY} {HH}:{mm}",
 
                 // 搜索
                 search: {
@@ -243,26 +244,46 @@
                         });
 
                         hook.beforeEach(function (content) {
-                            // add copyright
-                            var url = decodeURI(window.location.href);
-                            if (url.indexOf("?") != -1) url = url.split("?")[0];
+                            if (/githubusercontent\.com/.test(vm.route.file)) {
+                                var url = vm.route.file
+                                    .replace(
+                                        "raw.githubusercontent.com",
+                                        "github.com"
+                                    )
+                                    .replace(/\/master/, "/blob/master");
+                            } else {
+                                url =
+                                    "https://github.com/RogerRordo/rogerrordo.github.io/blob/master/docs/" +
+                                    vm.route.file;
+                            }
+                            url = decodeURI(url);
+                            // if (url.indexOf("?") != -1) url = url.split("?")[0];
                             var urlSplit = url.split("/");
                             urlSplit = urlSplit[urlSplit.length - 1];
                             if (
-                                urlSplit == "" ||
-                                urlSplit == "_sidebar" ||
-                                urlSplit == "README"
+                                urlSplit == "_sidebar.md" ||
+                                urlSplit == "README.md"
                             )
                                 return content;
 
+                            // add linkToEdit
+                            var linkToEdit =
+                                "<small> ⏰ 最后更新于 **{docsify-updated}** &emsp; &emsp; 📝 [编辑此页面](" +
+                                url +
+                                ") </small>\n\n---\n\n";
+                            content = linkToEdit + content;
+
+                            // add copyright
                             var copyRight =
-                                "\n\n---\n\n> ✏️ **文章作者:** [ROrdo](mailto:luozhf3@mail2.sysu.edu.com) \n>\n" +
+                                "\n\n---\n\n<small>\n\n> ✏️ **文章作者:** [ROrdo](mailto:luozhf3@mail2.sysu.edu.com) \n>\n" +
                                 "> 📎 **文章链接:** " +
                                 url +
                                 "\n>\n" +
                                 "> ©️ **版权声明:** 本博客所有文章除特别声明外，均采用" +
-                                "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)许可协议。\n";
-                            return content + copyRight;
+                                "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)许可协议。\n\n</small>\n";
+                            content += copyRight;
+
+                            return content;
                         });
 
                         hook.afterEach(function (html, next) {
