@@ -14,12 +14,6 @@
             rel="stylesheet"
             href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"
         />
-        <!-- GitTalk theme -->
-        <link
-            rel="stylesheet"
-            href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"
-        />
-        <!-- Custom theme styles -->
         <style>
             :root {
                 --theme-color: #7719aa;
@@ -27,7 +21,6 @@
                 --code-block-line-height: 1.5;
                 --copycode-background: var(--theme-color);
                 --copycode-color: #ffffff;
-
                 --sidebar-nav-pagelink-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='11.2' viewBox='0 0 7 11.2'%3E%3Cpath d='M1.5 1.5l4 4.1 -4 4.1' stroke-width='1.5' stroke='rgb%28119, 25, 170%29' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
                 --sidebar-nav-pagelink-background-image--active: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11.2' height='7' viewBox='0 0 11.2 7'%3E%3Cpath d='M1.5 1.5l4.1 4 4.1-4' stroke-width='1.5' stroke='rgb%28119, 25, 170%29' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
                 --sidebar-nav-pagelink-background-image--collapse: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='11.2' viewBox='0 0 7 11.2'%3E%3Cpath d='M1.5 1.5l4 4.1 -4 4.1' stroke-width='1.5' stroke='rgb%28119, 25, 170%29' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
@@ -41,7 +34,6 @@
             .markdown-section ul {
                 margin: 0em 0;
             }
-
             .markdown-section .tip,
             .markdown-section .warn {
                 margin: 0.5em 0;
@@ -67,7 +59,6 @@
                     )
                 );
             }
-
             .sidebar-nav
                 li.open
                 > a[href^="#/"]:not([href*="?id="]):not(:only-child) {
@@ -85,6 +76,64 @@
                         var(--sidebar-nav-pagelink-background-image)
                     )
                 );
+            }
+        </style>
+
+        <!-- Gitalk theme -->
+        <link
+            rel="stylesheet"
+            href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"
+        />
+        <style type="text/css">
+            .gt-container .gt-btn {
+                border: 1px solid #7719aa;
+                background-color: #7719aa;
+            }
+
+            .gt-container .gt-btn-preview {
+                color: #7719aa;
+            }
+
+            .gt-container .gt-header-controls-tip {
+                color: #7719aa;
+            }
+
+            .gt-container .gt-svg svg {
+                fill: #7719aa;
+            }
+
+            .gt-container a:hover {
+                color: #9558b2;
+                border-color: #9558b2;
+            }
+
+            .gt-container .gt-link {
+                border-bottom: 1px dotted #7719aa;
+            }
+
+            .gt-container a {
+                color: #7719aa;
+            }
+
+            .gt-container .gt-popup .gt-action.is--active::before {
+                background: #7719aa;
+            }
+
+            .gt-container .gt-btn-preview:hover {
+                border-color: #9558b2;
+            }
+
+            .gt-container .gt-user .is--poping .gt-ico svg {
+                fill: #7719aa;
+            }
+
+            .gt-container .gt-btn-public:hover {
+                background-color: #9558b2;
+                border-color: #9558b2;
+            }
+
+            .gt-container .gt-comment-username {
+                color: #7719aa;
             }
         </style>
     </head>
