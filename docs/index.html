@@ -9,11 +9,12 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
         />
-        <!-- Theme -->
+        <!-- Site Theme -->
         <link
             rel="stylesheet"
             href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"
         />
+        <!-- GitTalk theme -->
         <link
             rel="stylesheet"
             href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"
@@ -21,7 +22,29 @@
         <!-- Custom theme styles -->
         <style>
             :root {
+                --theme-color: #7719aa;
                 --sidebar-width: 22rem;
+                --code-block-line-height: 1.5;
+                --copycode-background: var(--theme-color);
+                --copycode-color: #ffffff;
+
+                --sidebar-nav-pagelink-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='11.2' viewBox='0 0 7 11.2'%3E%3Cpath d='M1.5 1.5l4 4.1 -4 4.1' stroke-width='1.5' stroke='rgb%28119, 25, 170%29' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+                --sidebar-nav-pagelink-background-image--active: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11.2' height='7' viewBox='0 0 11.2 7'%3E%3Cpath d='M1.5 1.5l4.1 4 4.1-4' stroke-width='1.5' stroke='rgb%28119, 25, 170%29' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+                --sidebar-nav-pagelink-background-image--collapse: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='11.2' viewBox='0 0 7 11.2'%3E%3Cpath d='M1.5 1.5l4 4.1 -4 4.1' stroke-width='1.5' stroke='rgb%28119, 25, 170%29' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+                --sidebar-nav-pagelink-background-image--loaded: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11.2' height='7' viewBox='0 0 11.2 7'%3E%3Cpath d='M1.5 1.5l4.1 4 4.1-4' stroke-width='1.5' stroke='rgb%28119, 25, 170%29' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+            }
+        </style>
+        <style type="text/css">
+            .markdown-section figure,
+            .markdown-section p,
+            .markdown-section ol,
+            .markdown-section ul {
+                margin: 0em 0;
+            }
+
+            .markdown-section .tip,
+            .markdown-section .warn {
+                margin: 0.5em 0;
             }
         </style>
         <!-- Fix sidebar fold arrow -->
@@ -103,6 +126,13 @@
                     crossChapterText: true,
                 },
 
+                // 复制代码
+                copyCode: {
+                    buttonText: "复制",
+                    errorText: "错误",
+                    successText: "已复制",
+                },
+
                 // 自定义插件
                 plugins: [
                     function (hook, vm) {
@@ -113,9 +143,9 @@
                         hook.beforeEach(function (content) {
                             // add copyright
                             var url = decodeURI(window.location.href);
+                            if (url.indexOf("?") != -1) url = url.split("?")[0];
                             var urlSplit = url.split("/");
-                            urlSplit = urlSplit[urlSplit.length - 1].split("?");
-                            urlSplit = urlSplit[0];
+                            urlSplit = urlSplit[urlSplit.length - 1];
                             if (
                                 urlSplit == "" ||
                                 urlSplit == "_sidebar" ||
@@ -182,7 +212,7 @@
         <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
 
         <!-- MD5 -->
-        <script src="js/md5.min.js"></script>
+        <script src="plugin/md5.min.js"></script>
 
         <!-- Git Talk -->
         <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
@@ -208,5 +238,8 @@
             async
             src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
         ></script>
+
+        <!-- Copy Code -->
+        <script src="//unpkg.com/docsify-copy-code"></script>
     </body>
 </html>
