@@ -27,7 +27,7 @@
     </head>
     <body>
         <nav>
-            <a href="#/">ROrdo</a>
+            <a href="#/"></a>
         </nav>
         <div id="app"></div>
         <script>
@@ -63,6 +63,55 @@
                     crossChapter: true,
                     crossChapterText: true,
                 },
+
+                // 自定义插件
+                plugins: [
+                    function (hook, vm) {
+                        hook.init(function () {
+                            // Called when the script starts running, only trigger once, no arguments,
+                        });
+
+                        hook.beforeEach(function (content) {
+                            // add copyright
+                            var url = decodeURI(window.location.href);
+                            var urlSplit = url.split("/");
+                            urlSplit = urlSplit[urlSplit.length - 1].split("?");
+                            urlSplit = urlSplit[0];
+                            if (urlSplit == "" || urlSplit == "_sidebar")
+                                return content;
+
+                            var copyRight =
+                                "\n\n---\n\n> ✏️ **文章作者:** [ROrdo](mailto:luozhf3@mail2.sysu.edu.com) \n>\n" +
+                                "> 📎 **文章链接:** " +
+                                url +
+                                "\n>\n" +
+                                "> ©️ **版权声明:** 本博客所有文章除特别声明外，均采用" +
+                                "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)许可协议。\n";
+                            return content + copyRight;
+                        });
+
+                        hook.afterEach(function (html, next) {
+                            // Invoked each time after the Markdown file is parsed.
+                            // beforeEach and afterEach support asynchronous。
+                            // ...
+                            // call `next(html)` when task is done.
+                            next(html);
+                        });
+
+                        hook.doneEach(function () {
+                            // parse twemoji
+                            twemoji.parse(document);
+                        });
+
+                        hook.mounted(function () {
+                            // Called after initial completion. Only trigger once, no arguments.
+                        });
+
+                        hook.ready(function () {
+                            // Called after initial completion, no arguments.
+                        });
+                    },
+                ],
             };
         </script>
         <!-- Docsify v4 -->
@@ -104,5 +153,14 @@
                 id: md5(location.href),
             });
         </script>
+
+        <!-- twemoji -->
+        <script src="//cdn.jsdelivr.net/gh/TaQini/docsify-twemoji@master/twemoji.min.js"></script>
+
+        <!-- Busuanzi -->
+        <script
+            async
+            src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+        ></script>
     </body>
 </html>
