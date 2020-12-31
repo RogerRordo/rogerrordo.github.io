@@ -12,16 +12,56 @@
         <!-- Theme -->
         <link
             rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"
+            href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"
         />
         <link
             rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"
+            href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"
         />
         <!-- Custom theme styles -->
         <style>
             :root {
                 --sidebar-width: 22rem;
+            }
+        </style>
+        <!-- Fix sidebar fold arrow -->
+        <style type="text/css">
+            .sidebar-nav
+                li
+                > a[href^="#/"]:not([href*="?id="]):not(:only-child) {
+                background-image: var(
+                    --sidebar-nav-pagelink-background-image--collapse,
+                    var(
+                        --sidebar-nav-pagelink-background-image--loaded,
+                        var(--sidebar-nav-pagelink-background-image)
+                    )
+                );
+                background-position: var(
+                    --sidebar-nav-pagelink-background-position--collapse,
+                    var(
+                        --sidebar-nav-pagelink-background-position--loaded,
+                        var(--sidebar-nav-pagelink-background-image)
+                    )
+                );
+            }
+
+            .sidebar-nav
+                li.open
+                > a[href^="#/"]:not([href*="?id="]):not(:only-child) {
+                background-image: var(
+                    --sidebar-nav-pagelink-background-image--active,
+                    var(
+                        --sidebar-nav-pagelink-background-image--loaded,
+                        var(--sidebar-nav-pagelink-background-image)
+                    )
+                );
+                background-position: var(
+                    --sidebar-nav-pagelink-background-position--active,
+                    var(
+                        --sidebar-nav-pagelink-background-position--loaded,
+                        var(--sidebar-nav-pagelink-background-image)
+                    )
+                );
             }
         </style>
     </head>
@@ -38,8 +78,7 @@
                 subMaxLevel: 3,
                 loadNavbar: true,
                 alias: {
-                    "/.*/_navbar.md": "/_navbar.md",
-                    "/_sidebar.md": "/_navbar.md",
+                    "/.*/_sidebar.md": "/_sidebar.md",
                 },
                 auto2top: true,
                 relativePath: false,
@@ -77,7 +116,11 @@
                             var urlSplit = url.split("/");
                             urlSplit = urlSplit[urlSplit.length - 1].split("?");
                             urlSplit = urlSplit[0];
-                            if (urlSplit == "" || urlSplit == "_sidebar")
+                            if (
+                                urlSplit == "" ||
+                                urlSplit == "_sidebar" ||
+                                urlSplit == "README"
+                            )
                                 return content;
 
                             var copyRight =
@@ -134,6 +177,9 @@
         <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-c.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-cpp.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+
+        <!-- Sidebar Collapse -->
+        <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
 
         <!-- MD5 -->
         <script src="js/md5.min.js"></script>
