@@ -54,26 +54,6 @@
             }
         </style>
 
-        <!-- Improve portable device -->
-        <style type="text/css">
-            @media (max-width: 47.99em) {
-                .sidebar-toggle {
-                    top: auto;
-                    bottom: 0;
-                    transform: translateX(0);
-                }
-                .sidebar-toggle .sidebar-toggle-button {
-                    top: auto;
-                    bottom: 0;
-                    transition: transform var(--sidebar-transition-duration)
-                        ease-out;
-                }
-                body.close .sidebar-toggle .sidebar-toggle-button {
-                    transform: translate(calc(0px - var(--sidebar-width)));
-                }
-            }
-        </style>
-
         <!-- Improve markdown -->
         <style type="text/css">
             .markdown-section figure,
@@ -194,13 +174,14 @@
         </nav>
         <div id="app"></div>
         <script>
+            var isMobile = document.body.clientWidth <= 600;
+            console.log(isMobile);
             window.$docsify = {
                 name: "",
                 repo: "RogerRordo/rogerrordo.github.io",
                 loadSidebar: true,
                 subMaxLevel: 3,
-                loadNavbar: true,
-                mergeNavbar: true,
+                loadNavbar: !isMobile, // 适配手机
                 alias: {
                     "/.*/_sidebar.md": "/_sidebar.md",
                     "/.*/_navbar.md": "/_navbar.md",
