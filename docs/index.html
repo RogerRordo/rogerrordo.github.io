@@ -10,7 +10,7 @@
             content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
         />
 
-        <!-- Site Theme -->
+        <!-- 网站主题 -->
         <link
             rel="stylesheet"
             href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"
@@ -29,14 +29,14 @@
             }
         </style>
 
-        <!-- Improve search input-->
+        <!-- 优化搜索的'x'按钮 -->
         <style type="text/css">
             .sidebar .search .clear-button {
                 margin: 0 7.5px 0 7.5px;
             }
         </style>
 
-        <!-- Improve Copycode -->
+        <!-- 更改 Copycode 颜色 -->
         <style>
             :root {
                 --copycode-background: var(--theme-color);
@@ -44,7 +44,7 @@
             }
         </style>
 
-        <!-- Improve Sidebar-nav-pagelink -->
+        <!-- 更改 sidebar 小箭头 (Sidebar-nav-pagelink) -->
         <style>
             :root {
                 --sidebar-nav-pagelink-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='11.2' viewBox='0 0 7 11.2'%3E%3Cpath d='M1.5 1.5l4 4.1 -4 4.1' stroke-width='1.5' stroke='rgb%28119, 25, 170%29' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
@@ -54,25 +54,7 @@
             }
         </style>
 
-        <!-- Improve markdown -->
-        <style type="text/css">
-            .markdown-section figure,
-            .markdown-section p,
-            .markdown-section ol,
-            .markdown-section ul {
-                margin: 0em 0;
-            }
-            .markdown-section .tip,
-            .markdown-section .warn {
-                margin: 0.5em 0;
-            }
-
-            .markdown-section a.anchor:hover {
-                text-decoration-color: var(--theme-color);
-            }
-        </style>
-
-        <!-- Fix sidebar fold arrow -->
+        <!-- 修复 sidebar 小箭头指向 -->
         <style type="text/css">
             .sidebar-nav
                 li
@@ -112,7 +94,25 @@
             }
         </style>
 
-        <!-- Gitalk theme -->
+        <!-- 优化 markdown 显示 -->
+        <style type="text/css">
+            .markdown-section figure,
+            .markdown-section p,
+            .markdown-section ol,
+            .markdown-section ul {
+                margin: 0em 0;
+            }
+            .markdown-section .tip,
+            .markdown-section .warn {
+                margin: 0.5em 0;
+            }
+
+            .markdown-section a.anchor:hover {
+                text-decoration-color: var(--theme-color);
+            }
+        </style>
+
+        <!-- Gitalk 主题 -->
         <link
             rel="stylesheet"
             href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"
@@ -160,11 +160,31 @@
             }
         </style>
 
-        <!-- Improve Pagination -->
+        <!-- 更改 Pagination 颜色 -->
         <style>
             :root {
                 --pagination-label-color: var(--theme-color);
                 --pagination-title-color: var(--theme-color);
+            }
+        </style>
+
+        <!-- PrismJS 添加行号 -->
+        <link
+            rel="stylesheet"
+            href="//prismjs.com/plugins/line-numbers/prism-line-numbers.css"
+        />
+        <style type="text/css">
+            .markdown-section pre[data-lang] {
+                overflow: auto !important;
+            }
+            .markdown-section pre[data-lang] code {
+                overflow: visible;
+            }
+            pre[class*="language-"].line-numbers > code {
+                padding-left: 0;
+            }
+            .line-numbers .line-numbers-rows {
+                top: 1.8em;
             }
         </style>
     </head>
@@ -216,16 +236,37 @@
                     successText: "已复制",
                 },
 
+                // Markdown相关
+                markdown: {
+                    renderer: {
+                        // PrismJS 添加行号
+                        code: function (code, lang) {
+                            return (
+                                '<pre data-lang="' +
+                                lang +
+                                '" class="line-numbers"><code class="language-' +
+                                lang +
+                                '">' +
+                                code +
+                                "</code></pre>"
+                            );
+                        },
+                    },
+                },
+
                 // 自定义插件
                 plugins: [
                     function (hook, vm) {
-                        hook.init(function () {
-                            // Called when the script starts running, only trigger once, no arguments,
+                        hook.doneEach(function (html) {
+                            Prism.highlightAll();
                         });
 
+                        // 文章头尾添加更新时间、编辑链接和版权声明
                         hook.beforeEach(function (content) {
+                            // 获取源文件地址
+                            let url;
                             if (/githubusercontent\.com/.test(vm.route.file)) {
-                                var url = vm.route.file
+                                url = vm.route.file
                                     .replace(
                                         "raw.githubusercontent.com",
                                         "github.com"
@@ -236,28 +277,33 @@
                                     "https://github.com/RogerRordo/rogerrordo.github.io/blob/master/docs/" +
                                     vm.route.file;
                             }
-                            url = decodeURI(url);
-                            // if (url.indexOf("?") != -1) url = url.split("?")[0];
                             var urlSplit = url.split("/");
                             urlSplit = urlSplit[urlSplit.length - 1];
                             if (
                                 urlSplit == "_sidebar.md" ||
                                 urlSplit == "README.md"
                             )
-                                return content;
+                                return content; // 不是文章
+                            url = decodeURI(url);
 
-                            // add linkToEdit
+                            // 获取网页地址
+                            var url2 = window.location.href;
+                            if (url2.indexOf("?") != -1)
+                                url2 = url2.split("?")[0];
+                            url2 = decodeURI(url2);
+
+                            // 添加头部
                             var linkToEdit =
                                 "<small> ⏰ 最后更新于 **{docsify-updated}** &emsp; &emsp; 📝 [编辑此页面](" +
                                 url +
                                 ") </small>\n\n---\n\n";
                             content = linkToEdit + content;
 
-                            // add copyright
+                            // 添加尾部
                             var copyRight =
                                 "\n\n---\n\n<small>\n\n> ✏️ **文章作者:** [ROrdo](mailto:luozhf3@mail2.sysu.edu.com) \n>\n" +
                                 "> 📎 **文章链接:** " +
-                                url +
+                                url2 +
                                 "\n>\n" +
                                 "> ©️ **版权声明:** 本博客所有文章除特别声明外，均采用" +
                                 "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)许可协议。\n\n</small>\n";
@@ -266,25 +312,9 @@
                             return content;
                         });
 
-                        hook.afterEach(function (html, next) {
-                            // Invoked each time after the Markdown file is parsed.
-                            // beforeEach and afterEach support asynchronous。
-                            // ...
-                            // call `next(html)` when task is done.
-                            next(html);
-                        });
-
+                        // parse twemoji
                         hook.doneEach(function () {
-                            // parse twemoji
                             twemoji.parse(document);
-                        });
-
-                        hook.mounted(function () {
-                            // Called after initial completion. Only trigger once, no arguments.
-                        });
-
-                        hook.ready(function () {
-                            // Called after initial completion, no arguments.
                         });
                     },
                 ],
@@ -293,31 +323,31 @@
         <!-- Docsify v4 -->
         <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
 
-        <!-- Search (modified to search list) -->
+        <!-- Search (搜索，修改版，可搜索list内容) -->
         <script src="/plugin/search_modified.js"></script>
 
-        <!-- Latex -->
+        <!-- Katex (Latex) -->
         <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
         <link
             rel="stylesheet"
             href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"
         />
 
-        <!-- Chapter -->
+        <!-- Pagination (翻页) -->
         <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
 
-        <!-- Code Highlight -->
-        <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-c.min.js"></script>
-        <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-cpp.min.js"></script>
-        <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+        <!-- PrismJS (代码高亮) -->
+        <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-c.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-cpp.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-python.min.js"></script>
 
-        <!-- Sidebar Collapse -->
+        <!-- Sidebar Collapse (Sidebar折叠) -->
         <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
 
         <!-- MD5 -->
         <script src="plugin/md5.min.js"></script>
 
-        <!-- Git Talk -->
+        <!-- Gitalk (评论) -->
         <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
         <script>
@@ -333,16 +363,19 @@
             });
         </script>
 
-        <!-- twemoji -->
+        <!-- Twemoji (Emoji) -->
         <script src="//cdn.jsdelivr.net/gh/TaQini/docsify-twemoji@master/twemoji.min.js"></script>
 
-        <!-- Busuanzi -->
+        <!-- Busuanzi (流量统计) -->
         <script
             async
             src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
         ></script>
 
-        <!-- Copy Code -->
+        <!-- Copy Code (复制代码) -->
         <script src="//unpkg.com/docsify-copy-code"></script>
+
+        <!-- Prism Line Numbers (PrismJS 添加行号) -->
+        <script src="//prismjs.com/plugins/line-numbers/prism-line-numbers.js"></script>
     </body>
 </html>
