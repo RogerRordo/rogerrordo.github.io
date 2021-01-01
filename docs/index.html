@@ -239,6 +239,7 @@
                 // 自定义插件
                 plugins: [
                     function (hook, vm) {
+                        // 添加行号
                         hook.doneEach(function (html) {
                             let list = document.querySelectorAll("pre");
                             for (let i = 0; i < list.length; ++i) {
@@ -287,12 +288,12 @@
 
                             // 添加尾部
                             var copyRight =
-                                "\n\n---\n\n<small>\n\n> ✏️ **文章作者:** [ROrdo](mailto:luozhf3@mail2.sysu.edu.com) \n>\n" +
+                                "\n\n---\n\n> ✏️ **文章作者:** [ROrdo](mailto:luozhf3@mail2.sysu.edu.com) \n>\n" +
                                 "> 📎 **文章链接:** " +
                                 url2 +
                                 "\n>\n" +
                                 "> ©️ **版权声明:** 本博客所有文章除特别声明外，均采用" +
-                                "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)许可协议。\n\n</small>\n";
+                                "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)许可协议。\n";
                             content += copyRight;
 
                             return content;
