@@ -236,28 +236,14 @@
                     successText: "已复制",
                 },
 
-                // Markdown相关
-                markdown: {
-                    renderer: {
-                        // PrismJS 添加行号
-                        code: function (code, lang) {
-                            return (
-                                '<pre data-lang="' +
-                                lang +
-                                '" class="line-numbers"><code class="language-' +
-                                lang +
-                                '">' +
-                                code +
-                                "</code></pre>"
-                            );
-                        },
-                    },
-                },
-
                 // 自定义插件
                 plugins: [
                     function (hook, vm) {
                         hook.doneEach(function (html) {
+                            let list = document.querySelectorAll("pre");
+                            for (let i = 0; i < list.length; ++i) {
+                                list[i].classList.add("line-numbers");
+                            }
                             Prism.highlightAll();
                         });
 
