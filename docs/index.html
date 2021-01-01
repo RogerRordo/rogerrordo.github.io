@@ -175,7 +175,6 @@
         <div id="app"></div>
         <script>
             var isMobile = document.body.clientWidth <= 600;
-            console.log(isMobile);
             window.$docsify = {
                 name: "",
                 repo: "RogerRordo/rogerrordo.github.io",
@@ -294,8 +293,8 @@
         <!-- Docsify v4 -->
         <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
 
-        <!-- Search -->
-        <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+        <!-- Search (modified to search list) -->
+        <script src="/plugin/search_modified.js"></script>
 
         <!-- Latex -->
         <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
