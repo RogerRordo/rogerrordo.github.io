@@ -1,8 +1,8 @@
 # ROrdo's Blog
 
-👀 **访问量** <span id="busuanzi_value_site_pv"></span> &emsp; 🚶 **访客数** <span id="busuanzi_value_site_uv"></span> &emsp; 📖 **阅读量** <span id="busuanzi_value_page_pv"></span> 
-
 ## 关于本Blog
+
+👀 **访问量** <span id="busuanzi_value_site_pv"></span> &emsp; 🚶 **访客数** <span id="busuanzi_value_site_uv"></span> 
 
 #TODO
 
