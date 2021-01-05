@@ -308,7 +308,8 @@
                             urlSplit = urlSplit[urlSplit.length - 1];
                             if (
                                 urlSplit == "_sidebar.md" ||
-                                urlSplit == "README.md"
+                                urlSplit == "README.md" ||
+                                urlSplit == "_TOC.md"
                             )
                                 return content; // 不是文章
                             url = decodeURI(url);
