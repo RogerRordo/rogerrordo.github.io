@@ -383,17 +383,22 @@
         <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
         <script>
+            window.title_id = window.location.hash.match(/#(.*?)([?]|$)/)
+                ? window.location.hash.match(/#(.*?)([?]|$)/)[1]
+                : "/";
             const gitalk = new Gitalk({
                 clientID: "9dd9311566530f40b3f1",
                 clientSecret: "6ef3586c67c69781d82a1e4fd740623af72488f8",
                 repo: "rogerrordo.github.io",
                 owner: "RogerRordo",
                 admin: ["RogerRordo"],
-                // facebook-like distraction free mode
+                title: decodeURI(window.title_id),
                 distractionFreeMode: false,
                 id: md5(location.href.split("?")[0]),
+                enableHotKey: true, // 提交评论快捷键 (cmd/ctrl + enter)
             });
         </script>
+        <script src="plugin/docsify.gitalk.js"></script>
 
         <!-- Twemoji (Emoji) -->
         <script src="//cdn.jsdelivr.net/gh/TaQini/docsify-twemoji@master/twemoji.min.js"></script>
