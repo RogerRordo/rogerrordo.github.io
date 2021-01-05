@@ -288,7 +288,7 @@
                             Prism.highlightAll();
                         });
 
-                        // 文章头尾添加更新时间、阅读量、编辑链接和版权声明
+                        // 文章头尾添加更新时间、编辑链接和版权声明
                         hook.beforeEach(function (content) {
                             // 获取源文件地址
                             let url;
@@ -321,7 +321,7 @@
 
                             // 添加头部
                             var linkToEdit =
-                                "<small> ⏰ 最后更新于 **{docsify-updated}** &emsp; &emsp; 📖 **阅读量** <span id='busuanzi_value_page_pv'></span> &emsp; &emsp; 📝 [编辑此页面](" +
+                                "<small> ⏰ 最后更新于 **{docsify-updated}** &emsp; &emsp; 📝 [编辑此页面](" +
                                 url +
                                 ") </small>\n\n---\n\n";
                             content = linkToEdit + content;
