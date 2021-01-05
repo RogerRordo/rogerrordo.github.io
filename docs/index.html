@@ -238,6 +238,15 @@
         </nav>
         <div id="app"></div>
         <script>
+            var gitalkConfig = {
+                clientID: "9dd9311566530f40b3f1",
+                clientSecret: "6ef3586c67c69781d82a1e4fd740623af72488f8",
+                repo: "rogerrordo.github.io",
+                owner: "RogerRordo",
+                admin: ["RogerRordo"],
+                distractionFreeMode: false,
+                enableHotKey: true, // 提交评论快捷键 (cmd/ctrl + enter)
+            };
             var isMobile = document.body.clientWidth <= 600;
             window.$docsify = {
                 name: "",
@@ -344,6 +353,45 @@
                             return content;
                         });
 
+                        // Gitalk
+                        hook.doneEach(function () {
+                            var label, domObj, main, divEle, gitalk;
+                            // label = vm.route.path.split("/").pop();
+                            label = md5(location.href.split("?")[0]);
+                            domObj = Docsify.dom;
+                            main = domObj.getNode("#main");
+
+                            Array.apply(
+                                null,
+                                document.querySelectorAll(
+                                    "div.gitalk-container"
+                                )
+                            ).forEach(function (ele) {
+                                ele.remove();
+                            });
+
+                            divEle = domObj.create("div");
+                            divEle.id = "gitalk-container-" + label;
+                            divEle.className = "gitalk-container";
+                            divEle.style =
+                                "width: " +
+                                main.clientWidth +
+                                "px; margin: 0 auto 20px;";
+                            domObj.appendTo(domObj.find(".content"), divEle);
+                            var title = window.location.hash.match(
+                                /#(.*?)([?]|$)/
+                            )
+                                ? window.location.hash.match(/#(.*?)([?]|$)/)[1]
+                                : "/";
+                            gitalk = new Gitalk(
+                                Object.assign(gitalkConfig, {
+                                    id: label,
+                                    title: decodeURI(title),
+                                })
+                            );
+                            gitalk.render("gitalk-container-" + label);
+                        });
+
                         // parse twemoji
                         hook.doneEach(function () {
                             twemoji.parse(document);
@@ -382,23 +430,6 @@
         <!-- Gitalk (评论) -->
         <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-        <script>
-            window.title_id = window.location.hash.match(/#(.*?)([?]|$)/)
-                ? window.location.hash.match(/#(.*?)([?]|$)/)[1]
-                : "/";
-            const gitalk = new Gitalk({
-                clientID: "9dd9311566530f40b3f1",
-                clientSecret: "6ef3586c67c69781d82a1e4fd740623af72488f8",
-                repo: "rogerrordo.github.io",
-                owner: "RogerRordo",
-                admin: ["RogerRordo"],
-                title: decodeURI(window.title_id),
-                distractionFreeMode: false,
-                id: md5(location.href.split("?")[0]),
-                enableHotKey: true, // 提交评论快捷键 (cmd/ctrl + enter)
-            });
-        </script>
-        <script src="plugin/docsify.gitalk.js"></script>
 
         <!-- Twemoji (Emoji) -->
         <script src="//cdn.jsdelivr.net/gh/TaQini/docsify-twemoji@master/twemoji.min.js"></script>
