@@ -100,7 +100,7 @@ def makeToc(path, tocFile):
     for r in results:
         header_level = r[0]
         spaces = " " * INDENT * (header_level - min_header_level)
-        print("{}{} [{}]({})".format(
+        print("> {}{} [{}]({})".format(
             spaces, TOC_LIST_PREFIX, r[1],
             path + r[2] if header_level > min_header_level else
             (path + r[2]).split('#')[0]),

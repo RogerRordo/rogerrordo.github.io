@@ -11,6 +11,7 @@
         };
 
         hook.doneEach(function () {
+            if ($docsify.pageNotFound) return;
             var label, domObj, main, divEle, gitalk;
             // label = vm.route.path.split("/").pop();
             label = md5(location.href.split("?")[0]);

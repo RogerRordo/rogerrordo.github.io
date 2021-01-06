@@ -1,8 +1,9 @@
 (function () {
     isMobile = document.body.clientWidth <= 600;
     param = {
-        name: "",
+        name: "ROrdo's Blog",
         repo: "RogerRordo/rogerrordo.github.io",
+        notFoundPage: true,
         loadSidebar: true,
         loadNavbar: !isMobile, // 适配手机
         subMaxLevel: 3,

@@ -1,7 +1,13 @@
-// 文章头尾添加更新时间、编辑链接和版权声明
+// 404游戏；文章头尾添加更新时间、编辑链接和版权声明
 (function () {
     function install(hook, vm) {
         hook.beforeEach(function (content) {
+            //404
+            if (content == "404") {
+                $docsify.pageNotFound = true;
+                return '<h1 class="animation404" align="center" style="color:var(--color-secondary-1-1)"><b>4 0 4</b></h1> <style> .animation404 { animation: twinkling 2s 1 ease-in-out; } .animated { animation-duration: 2s; animation-fill-mode: both; } @keyframes twinkling { 0% { opacity: 0; } 100% { opacity: 1; } } </style> <h3 class="animation404" align="center" style="color:var(--color-primary-2)">“ 山重水复疑无路&emsp;<br>&emsp;柳暗花明又一村 ”</h3> <div class="animation404" align="center"> <iframe id="catTrap" frameborder="0" name="catTrap" height="440px" scrolling="no" width="699px" align="center" src="cattrap.html"></iframe> </div>';
+            }
+            $docsify.pageNotFound = false;
             // 获取源文件地址
             let url;
             if (/githubusercontent\.com/.test(vm.route.file)) {
