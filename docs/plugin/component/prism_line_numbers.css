@@ -1,0 +1,12 @@
+.markdown-section pre[data-lang] {
+    overflow: auto !important;
+}
+.markdown-section pre[data-lang] code {
+    overflow: visible;
+}
+pre[class*="language-"].line-numbers > code {
+    padding-left: 0;
+}
+.line-numbers .line-numbers-rows {
+    top: 1.8em;
+}

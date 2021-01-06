@@ -9,440 +9,106 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
         />
+
         <!-- 谷歌收录 -->
         <meta
             name="google-site-verification"
             content="dOOiw1fSggZW95TpU7PbaZMXrvy9wuzfHUBB9Mc_KK0"
         />
-        <!-- 颜色 https://paletton.com/#uid=54H0u0k++++fnVItm+g+HtuXQgv -->
-        <style>
-            :root {
-                --color-primary-0: #a400ff;
-                --color-primary-1: #ca83f1;
-                --color-primary-2: #af21fd;
-                --color-primary-3: #65009d;
-                --color-primary-4: #390058;
-                --color-primary-bg: #a400ff10;
 
-                --color-secondary-1-0: #ff0090;
-                --color-secondary-1-1: #f780c3;
-                --color-secondary-1-2: #fe1599;
-                --color-secondary-1-3: #bc006b;
-                --color-secondary-1-4: #69003c;
-                --color-secondary-1-bg: #ff009010;
+        <!-- Color -->
+        <link rel="stylesheet" href="plugin/component/color.css" />
 
-                --color-secondary-2-0: #3d00ff;
-                --color-secondary-2-1: #a38bf2;
-                --color-secondary-2-2: #6030fd;
-                --color-secondary-2-3: #2700a2;
-                --color-secondary-2-4: #16015a;
-                --color-secondary-2-bg: #3d00ff10;
-            }
-        </style>
-
-        <!-- 网站主题 -->
+        <!-- Main-->
         <link
             rel="stylesheet"
             href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"
         />
-        <style>
-            :root {
-                --theme-color: var(--color-primary-0);
-                --code-block-line-height: 1.5;
-                --sidebar-toggle-background: var(--sidebar-background);
-                --sidebar-toggle-icon-color: var(--theme-color);
-                --sidebar-nav-link-text-decoration-color: var(
-                    --color-primary-1
-                );
-                --navbar-root-color--hover: var(--color-primary-1);
-                --navbar-menu-link-color--hover: var(--color-primary-1);
-                --navbar-root-color--active: var(--color-primary-0);
-                --navbar-menu-link-color--active: var(--color-primary-0);
-                --notice-important-background: var(--color-secondary-1-bg);
-                --notice-important-border-color: var(--color-secondary-1-0);
-                --notice-tip-background: var(--color-secondary-2-bg);
-                --notice-tip-border-color: var(--color-secondary-2-0);
-                --link-color--hover: var(--color-primary-1);
-            }
-        </style>
+        <link rel="stylesheet" href="plugin/component/main.css" />
 
-        <!-- 搜索样式相关 -->
-        <style type="text/css">
-            .sidebar .search .clear-button {
-                margin: 0 7.5px 0 7.5px;
-            }
-        </style>
-        <style>
-            :root {
-                --search-clear-icon-color1: var(--color-primary-1);
-                --search-input-background-image--focus: url("data:image/svg+xml,%3Csvg height='20px' width='20px' viewBox='0 0 24 24' fill='none' stroke='rgba(202, 131, 241, 1)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' preserveAspectRatio='xMidYMid meet' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10.5' cy='10.5' r='7.5' vector-effect='non-scaling-stroke'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='15.8' y2='15.8' vector-effect='non-scaling-stroke'%3E%3C/line%3E%3C/svg%3E");
-                --search-input-color: var(--color-primary-0);
-            }
-        </style>
+        <!-- Markdown -->
+        <link rel="stylesheet" href="plugin/component/markdown.css" />
 
-        <!-- 更改 Copycode 颜色 -->
-        <style>
-            :root {
-                --copycode-background: var(--color-primary-0);
-                --copycode-color: #ffffff;
-            }
-        </style>
+        <!-- Search -->
+        <link rel="stylesheet" href="plugin/component/search.css" />
 
-        <!-- 更改 sidebar 小箭头 (Sidebar-nav-pagelink) -->
-        <style>
-            :root {
-                --sidebar-nav-pagelink-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='11.2' viewBox='0 0 7 11.2'%3E%3Cpath d='M1.5 1.5l4 4.1 -4 4.1' stroke-width='1.5' stroke='rgb%28119, 25, 170%29' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
-                --sidebar-nav-pagelink-background-image--active: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11.2' height='7' viewBox='0 0 11.2 7'%3E%3Cpath d='M1.5 1.5l4.1 4 4.1-4' stroke-width='1.5' stroke='rgb%28119, 25, 170%29' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
-                --sidebar-nav-pagelink-background-image--collapse: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='11.2' viewBox='0 0 7 11.2'%3E%3Cpath d='M1.5 1.5l4 4.1 -4 4.1' stroke-width='1.5' stroke='rgb%28119, 25, 170%29' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
-                --sidebar-nav-pagelink-background-image--loaded: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11.2' height='7' viewBox='0 0 11.2 7'%3E%3Cpath d='M1.5 1.5l4.1 4 4.1-4' stroke-width='1.5' stroke='rgb%28119, 25, 170%29' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
-            }
-        </style>
+        <!-- Sidebar Collapse -->
+        <link rel="stylesheet" href="plugin/component/sidebar_arrow.css" />
 
-        <!-- 修复 sidebar 小箭头指向 -->
-        <style type="text/css">
-            .sidebar-nav
-                li
-                > a[href^="#/"]:not([href*="?id="]):not(:only-child) {
-                background-image: var(
-                    --sidebar-nav-pagelink-background-image--collapse,
-                    var(
-                        --sidebar-nav-pagelink-background-image--loaded,
-                        var(--sidebar-nav-pagelink-background-image)
-                    )
-                );
-                background-position: var(
-                    --sidebar-nav-pagelink-background-position--collapse,
-                    var(
-                        --sidebar-nav-pagelink-background-position--loaded,
-                        var(--sidebar-nav-pagelink-background-image)
-                    )
-                );
-            }
-            .sidebar-nav
-                li.open
-                > a[href^="#/"]:not([href*="?id="]):not(:only-child) {
-                background-image: var(
-                    --sidebar-nav-pagelink-background-image--active,
-                    var(
-                        --sidebar-nav-pagelink-background-image--loaded,
-                        var(--sidebar-nav-pagelink-background-image)
-                    )
-                );
-                background-position: var(
-                    --sidebar-nav-pagelink-background-position--active,
-                    var(
-                        --sidebar-nav-pagelink-background-position--loaded,
-                        var(--sidebar-nav-pagelink-background-image)
-                    )
-                );
-            }
-        </style>
+        <!-- Pagination -->
+        <link rel="stylesheet" href="plugin/component/pagination.css" />
 
-        <!-- 优化 markdown 显示 -->
-        <style type="text/css">
-            .markdown-section figure,
-            .markdown-section p,
-            .markdown-section ol,
-            .markdown-section ul {
-                margin: 0em 0;
-            }
-            .markdown-section .tip,
-            .markdown-section .warn {
-                margin: 0.5em 0;
-            }
-
-            .markdown-section a.anchor:hover {
-                text-decoration-color: var(--color-primary-1);
-            }
-        </style>
-
-        <!-- Gitalk 主题 -->
+        <!-- Gitalk -->
         <link
             rel="stylesheet"
             href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"
         />
-        <style type="text/css">
-            .gt-container .gt-btn {
-                border: 1px solid var(--color-primary-0);
-                background-color: var(--color-primary-0);
-            }
-            .gt-container .gt-btn-preview {
-                color: var(--color-primary-0);
-                background-color: #fff;
-            }
-            .gt-container .gt-header-controls-tip {
-                color: var(--color-primary-0);
-            }
-            .gt-container .gt-svg svg {
-                fill: var(--color-primary-0);
-            }
-            .gt-container a:hover {
-                color: var(--color-primary-1);
-                border-color: var(--color-primary-1);
-            }
-            .gt-container .gt-link {
-                border-bottom: 1px dotted var(--color-primary-0);
-            }
-            .gt-container a {
-                color: var(--color-primary-0);
-            }
-            .gt-container .gt-popup .gt-action.is--active::before {
-                background: var(--color-primary-0);
-            }
-            .gt-container .gt-btn-preview:hover {
-                border-color: var(--color-primary-1);
-            }
-            .gt-container .gt-user .is--poping .gt-ico svg {
-                fill: var(--color-primary-0);
-            }
-            .gt-container .gt-btn-public:hover {
-                background-color: var(--color-primary-1);
-                border-color: var(--color-primary-1);
-            }
-            .gt-container .gt-comment-username {
-                color: var(--color-primary-0);
-            }
-        </style>
+        <link rel="stylesheet" href="plugin/component/gitalk.css" />
 
-        <!-- 更改 Pagination 颜色 -->
-        <style>
-            :root {
-                --pagination-label-color: var(--color-primary-0);
-                --pagination-title-color: var(--color-primary-0);
-            }
-        </style>
+        <!-- Copycode -->
+        <link rel="stylesheet" href="plugin/component/copycode.css" />
 
-        <!-- PrismJS 添加行号 -->
+        <!-- Prism Line Numbers -->
         <link
             rel="stylesheet"
             href="//prismjs.com/plugins/line-numbers/prism-line-numbers.css"
         />
-        <style type="text/css">
-            .markdown-section pre[data-lang] {
-                overflow: auto !important;
-            }
-            .markdown-section pre[data-lang] code {
-                overflow: visible;
-            }
-            pre[class*="language-"].line-numbers > code {
-                padding-left: 0;
-            }
-            .line-numbers .line-numbers-rows {
-                top: 1.8em;
-            }
-        </style>
+        <link rel="stylesheet" href="plugin/component/prism_line_numbers.css" />
     </head>
     <body>
-        <nav>
-            <a href="#/"></a>
-        </nav>
         <div id="app"></div>
         <script>
-            var gitalkConfig = {
-                clientID: "9dd9311566530f40b3f1",
-                clientSecret: "6ef3586c67c69781d82a1e4fd740623af72488f8",
-                repo: "rogerrordo.github.io",
-                owner: "RogerRordo",
-                admin: ["RogerRordo"],
-                distractionFreeMode: false,
-                enableHotKey: true, // 提交评论快捷键 (cmd/ctrl + enter)
-            };
-            var isMobile = document.body.clientWidth <= 600;
-            window.$docsify = {
-                name: "",
-                repo: "RogerRordo/rogerrordo.github.io",
-                loadSidebar: true,
-                subMaxLevel: 3,
-                loadNavbar: !isMobile, // 适配手机
-                alias: {
-                    "/.*/_sidebar.md": "/_sidebar.md",
-                    "/.*/_navbar.md": "/_navbar.md",
-                },
-                auto2top: true,
-                relativePath: false,
-                formatUpdated: "{MM}/{DD}/{YYYY} {HH}:{mm}",
-
-                // 搜索
-                search: {
-                    maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-                    paths: "auto",
-                    placeholder: "搜索",
-                    noData: "找不到结果",
-
-                    // 搜索标题的最大层级, 1 - 6
-                    depth: 3,
-                    hideOtherSidebarContent: false, // 是否隐藏其他侧边栏内容
-                },
-
-                // 章节
-                pagination: {
-                    previousText: "上一章节",
-                    nextText: "下一章节",
-                    crossChapter: true,
-                    crossChapterText: true,
-                },
-
-                // 复制代码
-                copyCode: {
-                    buttonText: "复制",
-                    errorText: "错误",
-                    successText: "已复制",
-                },
-
-                // 自定义插件
-                plugins: [
-                    function (hook, vm) {
-                        // 添加行号
-                        hook.doneEach(function (html) {
-                            let list = document.querySelectorAll("pre");
-                            for (let i = 0; i < list.length; ++i) {
-                                list[i].classList.add("line-numbers");
-                            }
-                            Prism.highlightAll();
-                        });
-
-                        // 文章头尾添加更新时间、编辑链接和版权声明
-                        hook.beforeEach(function (content) {
-                            // 获取源文件地址
-                            let url;
-                            if (/githubusercontent\.com/.test(vm.route.file)) {
-                                url = vm.route.file
-                                    .replace(
-                                        "raw.githubusercontent.com",
-                                        "github.com"
-                                    )
-                                    .replace(/\/master/, "/blob/master");
-                            } else {
-                                url =
-                                    "https://github.com/RogerRordo/rogerrordo.github.io/blob/master/docs/" +
-                                    vm.route.file;
-                            }
-                            var urlSplit = url.split("/");
-                            urlSplit = urlSplit[urlSplit.length - 1];
-                            if (
-                                urlSplit == "_sidebar.md" ||
-                                urlSplit == "README.md" ||
-                                urlSplit == "_TOC.md"
-                            )
-                                return content; // 不是文章
-                            url = decodeURI(url);
-
-                            // 获取网页地址
-                            var url2 = window.location.href;
-                            if (url2.indexOf("?") != -1)
-                                url2 = url2.split("?")[0];
-                            url2 = decodeURI(url2);
-
-                            // 添加头部
-                            var linkToEdit =
-                                "<small> ⏰ 最后更新于 **{docsify-updated}** &emsp; &emsp; 📝 [编辑此页面](" +
-                                url +
-                                ") </small>\n\n---\n\n";
-                            content = linkToEdit + content;
-
-                            // 添加尾部
-                            var copyRight =
-                                "\n\n---\n\n> ✏️ **文章作者:** [ROrdo](mailto:luozhf3@mail2.sysu.edu.com) \n>\n" +
-                                "> 📎 **文章链接:** " +
-                                url2 +
-                                "\n>\n" +
-                                "> ©️ **版权声明:** 本博客所有文章除特别声明外，均采用" +
-                                "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)许可协议。\n";
-                            content += copyRight;
-
-                            return content;
-                        });
-
-                        // Gitalk
-                        hook.doneEach(function () {
-                            var label, domObj, main, divEle, gitalk;
-                            // label = vm.route.path.split("/").pop();
-                            label = md5(location.href.split("?")[0]);
-                            domObj = Docsify.dom;
-                            main = domObj.getNode("#main");
-
-                            Array.apply(
-                                null,
-                                document.querySelectorAll(
-                                    "div.gitalk-container"
-                                )
-                            ).forEach(function (ele) {
-                                ele.remove();
-                            });
-
-                            divEle = domObj.create("div");
-                            divEle.id = "gitalk-container-" + label;
-                            divEle.className = "gitalk-container";
-                            divEle.style =
-                                "width: " +
-                                main.clientWidth +
-                                "px; margin: 0 auto 20px;";
-                            domObj.appendTo(domObj.find(".content"), divEle);
-                            var title = window.location.hash.match(
-                                /#(.*?)([?]|$)/
-                            )
-                                ? window.location.hash.match(/#(.*?)([?]|$)/)[1]
-                                : "/";
-                            gitalk = new Gitalk(
-                                Object.assign(gitalkConfig, {
-                                    id: label,
-                                    title: decodeURI(title),
-                                })
-                            );
-                            gitalk.render("gitalk-container-" + label);
-                        });
-
-                        // parse twemoji
-                        hook.doneEach(function () {
-                            twemoji.parse(document);
-                        });
-                    },
-                ],
-            };
+            window.$docsify = {};
         </script>
-        <!-- Docsify v4 -->
+
+        <!-- Main -->
         <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+        <script src="plugin/component/main.js"></script>
+        <script src="plugin/component/article.js"></script>
 
-        <!-- Search (搜索，修改版，可搜索list内容) -->
-        <script src="/plugin/search_modified.js"></script>
+        <!-- Search -->
+        <script src="plugin/component/search.js"></script>
+        <script src="plugin/search_modified.js"></script>
 
-        <!-- Katex (Latex) -->
-        <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
-        <link
-            rel="stylesheet"
-            href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"
-        />
-
-        <!-- Pagination (翻页) -->
-        <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
-
-        <!-- PrismJS (代码高亮) -->
-        <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-c.min.js"></script>
-        <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-cpp.min.js"></script>
-        <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-python.min.js"></script>
-
-        <!-- Sidebar Collapse (Sidebar折叠) -->
+        <!-- Sidebar Collapse -->
         <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+
+        <!-- Katex -->
+        <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest"></script>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest" />
+
+        <!-- Pagination -->
+        <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+        <script src="plugin/component/pagination.js"></script>
 
         <!-- MD5 -->
         <script src="plugin/md5.min.js"></script>
 
-        <!-- Gitalk (评论) -->
+        <!-- Gitalk -->
         <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+        <script src="plugin/component/gitalk.js"></script>
 
-        <!-- Twemoji (Emoji) -->
+        <!-- Twemoji -->
         <script src="//cdn.jsdelivr.net/gh/TaQini/docsify-twemoji@master/twemoji.min.js"></script>
+        <script src="plugin/component/twemoji.js"></script>
 
-        <!-- Busuanzi (流量统计) -->
+        <!-- Prism -->
+        <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-c.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-cpp.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-python.min.js"></script>
+
+        <!-- Copycode-->
+        <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@latest"></script>
+        <script src="plugin/component/copycode.js"></script>
+
+        <!-- Prism Line Numbers -->
+        <script src="//prismjs.com/plugins/line-numbers/prism-line-numbers.js"></script>
+        <script src="plugin/component/prism_line_numbers.js"></script>
+
+        <!-- Busuanzi -->
         <script
             async
             src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
         ></script>
-
-        <!-- Copy Code (复制代码) -->
-        <script src="//unpkg.com/docsify-copy-code"></script>
-
-        <!-- Prism Line Numbers (PrismJS 添加行号) -->
-        <script src="//prismjs.com/plugins/line-numbers/prism-line-numbers.js"></script>
     </body>
 </html>

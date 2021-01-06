@@ -1,0 +1,14 @@
+.markdown-section figure,
+.markdown-section p,
+.markdown-section ol,
+.markdown-section ul {
+    margin: 0em 0;
+}
+.markdown-section .tip,
+.markdown-section .warn {
+    margin: 0.5em 0;
+}
+
+.markdown-section a.anchor:hover {
+    text-decoration-color: var(--color-primary-1);
+}

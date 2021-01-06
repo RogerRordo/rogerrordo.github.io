@@ -1,0 +1,25 @@
+/*
+    https://paletton.com/#uid=54H0u0k++++fnVItm+g+HtuXQgv
+*/
+:root {
+    --color-primary-0: #a400ff;
+    --color-primary-1: #ca83f1;
+    --color-primary-2: #af21fd;
+    --color-primary-3: #65009d;
+    --color-primary-4: #390058;
+    --color-primary-bg: #a400ff10;
+
+    --color-secondary-1-0: #ff0090;
+    --color-secondary-1-1: #f780c3;
+    --color-secondary-1-2: #fe1599;
+    --color-secondary-1-3: #bc006b;
+    --color-secondary-1-4: #69003c;
+    --color-secondary-1-bg: #ff009010;
+
+    --color-secondary-2-0: #3d00ff;
+    --color-secondary-2-1: #a38bf2;
+    --color-secondary-2-2: #6030fd;
+    --color-secondary-2-3: #2700a2;
+    --color-secondary-2-4: #16015a;
+    --color-secondary-2-bg: #3d00ff10;
+}

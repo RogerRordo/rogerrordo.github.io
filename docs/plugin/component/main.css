@@ -1,0 +1,16 @@
+:root {
+    --theme-color: var(--color-primary-0);
+    --code-block-line-height: 1.5;
+    --sidebar-toggle-background: var(--sidebar-background);
+    --sidebar-toggle-icon-color: var(--theme-color);
+    --sidebar-nav-link-text-decoration-color: var(--color-primary-1);
+    --navbar-root-color--hover: var(--color-primary-1);
+    --navbar-menu-link-color--hover: var(--color-primary-1);
+    --navbar-root-color--active: var(--color-primary-0);
+    --navbar-menu-link-color--active: var(--color-primary-0);
+    --notice-important-background: var(--color-secondary-1-bg);
+    --notice-important-border-color: var(--color-secondary-1-0);
+    --notice-tip-background: var(--color-secondary-2-bg);
+    --notice-tip-border-color: var(--color-secondary-2-0);
+    --link-color--hover: var(--color-primary-1);
+}
