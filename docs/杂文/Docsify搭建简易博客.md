@@ -1,7 +1,7 @@
 ---
 date: 2021-01-06 19:49:24
-updated: 2021-01-07 12:23:25
-md5: 'da10483ffb04c297ce9625dbfada7db8'
+updated: 2021-01-07 14:18:58
+md5: '0f507bcc58b0f86c98b5f4728cde15db'
 ---
 
 # Docsify搭建简易博客
@@ -163,6 +163,7 @@ function getData(token) {
         ```js
         <script type="module" src="plugin/article.js"></script>
         ```
+- 还有一点很坑的点，那就是Safari中由`parser`得到的时间是String而不是Date。而且该String包含“-”，在Safari中无法直接转为Date，需要将“-”替换为“/”再转换。
 
 [article.js](../plugin/article.js ':include :type=code :fragment=Add_Head')
 

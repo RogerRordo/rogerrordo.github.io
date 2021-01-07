@@ -52,6 +52,16 @@ import parser from "./parser.js";
             vm.frontmatter = attributes;
             content = body;
 
+            // iOS日期适配
+            if (typeof vm.frontmatter.date == "string") {
+                vm.frontmatter.date = new Date(
+                    vm.frontmatter.date.replace(/-/g, "/")
+                );
+                vm.frontmatter.updated = new Date(
+                    vm.frontmatter.updated.replace(/-/g, "/")
+                );
+            }
+
             // 添加头部
             let linkToEdit;
             if (vm.frontmatter.date && vm.frontmatter.updated)
