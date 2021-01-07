@@ -11,19 +11,21 @@
         };
 
         hook.doneEach(function () {
-            if ($docsify.pageNotFound) return; // 404
-            var label, domObj, main, divEle, gitalk;
-            // label = vm.route.path.split("/").pop();
-            label = md5(location.href.split("?")[0]);
-            domObj = Docsify.dom;
-            main = domObj.getNode("#main");
-
+            // remove gitalk-container
             Array.apply(
                 null,
                 document.querySelectorAll("div.gitalk-container")
             ).forEach(function (ele) {
                 ele.remove();
             });
+
+            if ($docsify.pageNotFound) return; // 404 return
+
+            var label, domObj, main, divEle, gitalk;
+            // label = vm.route.path.split("/").pop();
+            label = md5(location.href.split("?")[0]);
+            domObj = Docsify.dom;
+            main = domObj.getNode("#main");
 
             divEle = domObj.create("div");
             divEle.id = "gitalk-container-" + label;
