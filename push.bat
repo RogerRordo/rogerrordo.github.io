@@ -1,4 +1,6 @@
 @echo off
+python generateTOC.py
+python updateTime.py
 set commit=
 set /p commit=commit: %=%
 git add -A

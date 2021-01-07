@@ -1,5 +1,4 @@
 (function () {
-    isMobile = document.body.clientWidth <= 600;
     param = {
         copyCode: {
             buttonText: "复制",

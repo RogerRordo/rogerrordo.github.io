@@ -13,7 +13,7 @@
         },
         auto2top: true,
         relativePath: false,
-        formatUpdated: "{MM}/{DD}/{YYYY} {HH}:{mm}",
+        formatUpdated: "{YYYY}/{MM}/{DD} {HH}:{mm}",
     };
     $docsify = Object.assign(param, $docsify);
 })();
