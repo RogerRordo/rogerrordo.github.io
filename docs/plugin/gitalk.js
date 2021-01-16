@@ -23,7 +23,7 @@
 
             var label, domObj, main, divEle, gitalk;
             // label = vm.route.path.split("/").pop();
-            label = md5(location.href.split("?")[0]);
+            label = md5(location.hash.split("?")[0]);
             domObj = Docsify.dom;
             main = domObj.getNode("#main");
 
