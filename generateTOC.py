@@ -54,7 +54,7 @@ def makeToc(path, tocFile):
     results = []  # list of (header level, title, anchor) tuples
     anchors = {}
 
-    mdFile = open(DIR + path)
+    mdFile = open(DIR + path, encoding='UTF-8')
     for line in mdFile.readlines():
         if toggles_block_quote(line):
             in_block_quote = not in_block_quote
@@ -85,7 +85,7 @@ def makeToc(path, tocFile):
 
 
 def main():
-    with open(DIR + SIDEBAR_FILE) as f:
+    with open(DIR + SIDEBAR_FILE, 'r', encoding='UTF-8') as f:
         inToc = False
         tocFile = None
         for line in f.readlines():
@@ -101,7 +101,7 @@ def main():
                     tocFile.close()
                 inToc = True
                 tocLevel = level
-                tocFile = open(DIR + path, 'w')
+                tocFile = open(DIR + path, 'w', encoding='UTF-8')
                 print('# ' + title + '\n\n---\n', file=tocFile)
             elif inToc:
                 if level <= tocLevel:  # TOC结束

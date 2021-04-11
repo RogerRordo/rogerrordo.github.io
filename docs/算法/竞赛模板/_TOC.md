@@ -32,7 +32,7 @@
 > - [树 <!-- {docsify-ignore} -->](/算法/竞赛模板/树.md)
 >     - [树的直径-BFS](/算法/竞赛模板/树.md#树的直径-bfs)
 >     - [LCA-TarjanLCA](/算法/竞赛模板/树.md#lca-tarjanlca)
-> - [树](/算法/竞赛模板/图.md)
+> - [图](/算法/竞赛模板/图.md)
 >     - [单源最短路-Dijkstra](/算法/竞赛模板/图.md#单源最短路-dijkstra)
 >     - [最短路-Floyd](/算法/竞赛模板/图.md#最短路-floyd)
 >     - [单源最短路-SPFA](/算法/竞赛模板/图.md#单源最短路-spfa)

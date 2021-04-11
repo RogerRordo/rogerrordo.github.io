@@ -17,7 +17,7 @@ MD5_RE = re.compile(r"md5: *'(.*)'")
 
 
 def main():
-    with open(DIR + SIDEBAR_FILE) as f:
+    with open(DIR + SIDEBAR_FILE, 'r', encoding='UTF-8') as f:
         for lineF in f.readlines():
             # 判断是不是list item
             m = LIST_RE.match(lineF)
@@ -31,7 +31,7 @@ def main():
                 continue
 
             # 读入
-            with open(DIR + path, 'r') as mdFile:
+            with open(DIR + path, 'r', encoding='UTF-8') as mdFile:
                 lines = []
                 for lineMd in mdFile.readlines():
                     lines.append(lineMd)
@@ -58,7 +58,7 @@ def main():
                 mtime = ctime
 
             # 输出
-            with open(DIR + path, 'w') as mdFile:
+            with open(DIR + path, 'w', encoding='UTF-8') as mdFile:
                 print('---', file=mdFile)
                 print('date: ' + ctime.strftime('%Y-%m-%d %H:%M:%S'),
                       file=mdFile)
