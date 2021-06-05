@@ -15,5 +15,7 @@
 - [算法](/算法/)
     - [竞赛模板](/算法/竞赛模板/_TOC.md)
     - [LeetCode](/算法/LeetCode/)
+- [Linux](/Linux/)
+    - [Linux疑难杂症](/Linux/Linux疑难杂症.md)
 - [pony.ai](/pony.ai/)
     - [Sites](/pony.ai/Sites.md)

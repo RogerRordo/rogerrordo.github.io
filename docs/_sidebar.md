@@ -46,5 +46,7 @@
         - [数据结构](/算法/竞赛模板/数据结构.md)
         - [其他](/算法/竞赛模板/其他.md)
     - [LeetCode](/算法/LeetCode/)
+- [Linux](/Linux/)
+    - [Linux疑难杂症](/Linux/Linux疑难杂症.md)
 - [pony.ai](/pony.ai/)
     - [Sites](/pony.ai/Sites.md)
